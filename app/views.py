@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from app.models import Post
 
@@ -17,11 +17,11 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     # qs = Post.objects.get(pk=pk)
-    qs = get_object_or_404(Post, pk=pk)
+    post_list = get_object_or_404(Post, pk=pk)
     return render(
         request,
         "app/post_detail.html",
         {
-            "post": qs,
+            "post": post_list,
         },
     )
