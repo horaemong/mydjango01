@@ -1,3 +1,5 @@
+{% load django_bootstrap5 %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,13 +10,18 @@
     <title>django_basic</title>
 </head>
 <body>
+<div class="container">
     <h1>장고 입문</h1>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 
     {% block content %}
     {% endblock %}
 
-    <hr />
+    <hr/>
 
     &copy; 2022. 파이썬 사랑방.
+</div>
 </body>
 </html>
