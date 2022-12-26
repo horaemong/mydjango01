@@ -13,3 +13,15 @@ def index(request: HttpRequest) -> HttpResponse:
             "post_list": qs,
         },
     )
+
+
+def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
+    # qs = Post.objects.get(pk=pk)
+    qs = get_object_or_404(Post, pk=pk)
+    return render(
+        request,
+        "app/post_detail.html",
+        {
+            "post": qs,
+        },
+    )
